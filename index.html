@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вопросы и ответы на лидерку банды (17 вопросов)</title>
+    <!-- Google Fonts: Inter & Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0b0d11;
+            background-image: radial-gradient(circle at 20% 20%, #161b24 0%, #0a0c10 100%);
+            min-height: 100vh;
+            color: #eef2f8;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(18, 22, 30, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 48px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: floatUp 0.8s cubic-bezier(0.16, 1, 0.2, 1) forwards;
+        }
+
+        @keyframes floatUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.05s; }
+        .delay-2 { animation-delay: 0.15s; }
+        .delay-3 { animation-delay: 0.25s; }
+        .delay-4 { animation-delay: 0.35s; }
+        .delay-5 { animation-delay: 0.45s; }
+        .delay-6 { animation-delay: 0.55s; }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            padding: 0.4rem 1.4rem 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #f5c842;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-badge i { font-size: 1rem; color: #f5c842; }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            font-size: 2.6rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #b3c6e7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+            line-height: 1.1;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #a7b9d9;
+            margin-bottom: 2rem;
+            border-left: 3px solid #f5c842;
+            padding-left: 1rem;
+            font-weight: 400;
+        }
+
+        .candidate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 32px;
+            padding: 1.8rem 1.8rem 1.4rem;
+            margin-bottom: 2.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+            color: #8fa1c7;
+        }
+
+        .field-group input,
+        .field-group textarea {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid #2e3748;
+            border-radius: 20px;
+            padding: 0.7rem 1.2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #f0f4fe;
+            transition: border 0.25s, box-shadow 0.25s;
+            outline: none;
+            width: 100%;
+            resize: vertical;
+        }
+
+        .field-group input:focus,
+        .field-group textarea:focus {
+            border-color: #f5c842;
+            box-shadow: 0 0 0 3px rgba(245, 200, 66, 0.15);
+        }
+
+        .field-group textarea {
+            min-height: 60px;
+            border-radius: 24px;
+        }
+
+        .full-width { grid-column: 1 / -1; }
+
+        .block-title {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 2.2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #e5edff;
+        }
+
+        .block-title span {
+            background: #f5c842;
+            color: #0b0d11;
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .question-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem 1.8rem;
+            margin-bottom: 1.4rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: background 0.2s;
+        }
+
+        .question-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .q-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .q-number {
+            font-weight: 700;
+            color: #f5c842;
+            font-size: 0.9rem;
+            background: rgba(245, 200, 66, 0.08);
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            border: 1px solid rgba(245, 200, 66, 0.1);
+        }
+
+        .q-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #d6e2ff;
+            word-break: break-word;
+        }
+
+        .q-desc {
+            color: #b0c4e6;
+            font-size: 0.95rem;
+            margin: 0.4rem 0 1rem 0;
+            padding-left: 0.2rem;
+        }
+
+        .q-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px 20px;
+            margin-top: 8px;
+        }
+
+        .max-score {
+            font-size: 0.8rem;
+            background: #1f293f;
+            padding: 0.2rem 1rem;
+            border-radius: 100px;
+            color: #bcc9ec;
+            font-weight: 500;
+        }
+
+        .score-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .score-btn {
+            background: transparent;
+            border: 1px solid #35405a;
+            color: #a7b9d9;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.3rem 1.1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .score-btn:hover {
+            border-color: #f5c842;
+            color: #f5c842;
+            background: rgba(245, 200, 66, 0.05);
+        }
+
+        .score-btn.active {
+            background: #f5c842;
+            border-color: #f5c842;
+            color: #0b0d11;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(245, 200, 66, 0.25);
+        }
+
+        .score-btn[data-value="0"]:hover { border-color: #ff6b6b; color: #ff6b6b; }
+        .score-btn[data-value="0"].active { background: #ff6b6b; border-color: #ff6b6b; color: #0b0d11; }
+
+        .show-answer-btn {
+            background: transparent;
+            border: 1px solid #3d4a62;
+            color: #b7c9f0;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .show-answer-btn:hover {
+            border-color: #f5c842;
+            color: #f5c842;
+            background: rgba(245, 200, 66, 0.04);
+        }
+
+        .answer-reveal {
+            margin-top: 12px;
+            padding: 0.7rem 1.4rem;
+            background: rgba(245, 200, 66, 0.04);
+            border-left: 3px solid #f5c842;
+            border-radius: 16px;
+            color: #d6dff5;
+            font-size: 0.95rem;
+            display: none;
+            animation: fadeReveal 0.4s ease;
+            line-height: 1.5;
+        }
+
+        .answer-reveal.open {
+            display: block;
+        }
+
+        .answer-reveal strong {
+            color: #f5c842;
+        }
+
+        @keyframes fadeReveal {
+            0% { opacity: 0; transform: translateY(-6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .not-evaluated {
+            display: inline-block;
+            background: #2a344a;
+            color: #8fa1c7;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            letter-spacing: 0.4px;
+        }
+
+        .result-block {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0 1.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem 2rem;
+        }
+
+        .result-score {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .result-score .big {
+            font-size: 2.8rem;
+            font-weight: 800;
+            font-family: 'Orbitron', monospace;
+            color: #f5c842;
+            letter-spacing: 1px;
+        }
+
+        .result-score .total {
+            font-size: 1.2rem;
+            color: #8fa1c7;
+            font-weight: 500;
+        }
+
+        .result-status {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            padding: 0.4rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            background: #2a344a;
+            color: #8fa1c7;
+            transition: all 0.4s ease;
+        }
+
+        .status-badge.recommend {
+            background: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.05);
+        }
+
+        .status-badge.not-recommend {
+            background: rgba(255, 107, 107, 0.12);
+            color: #ff6b6b;
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .status-badge.pending {
+            background: #2a344a;
+            color: #f5c842;
+            border: 1px solid rgba(245, 200, 66, 0.15);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-reset {
+            background: transparent;
+            border: 1px solid #3d4a62;
+            color: #a7b9d9;
+            padding: 0.5rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-reset:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+        .btn-calc {
+            background: linear-gradient(135deg, #f5c842, #e0a82b);
+            border: none;
+            color: #0b0d11;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 16px rgba(245, 200, 66, 0.15);
+        }
+
+        .btn-calc:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(245, 200, 66, 0.25);
+        }
+
+        .btn-calc:active { transform: scale(0.97); }
+
+        .btn-save {
+            background: linear-gradient(135deg, #34d399, #10b981);
+            border: none;
+            color: #0b0d11;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 16px rgba(52, 211, 153, 0.15);
+        }
+
+        .btn-save:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(52, 211, 153, 0.25);
+        }
+
+        .btn-save:active { transform: scale(0.97); }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f5c842, #e0a82b);
+            border: none;
+            color: #0b0d11;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(245, 200, 66, 0.2);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 32px rgba(245, 200, 66, 0.35);
+            background: linear-gradient(135deg, #fdda5a, #e8b32d);
+        }
+
+        .btn-gold:active { transform: scale(0.97); }
+
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f293f;
+            color: #eef2f8;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+            font-weight: 500;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast.show {
+            display: block;
+            animation: floatUp 0.4s ease forwards;
+        }
+
+        .toast.success {
+            border-left: 4px solid #34d399;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        @media (max-width: 700px) {
+            .card { padding: 1.6rem 1.2rem; }
+            h1 { font-size: 2rem; }
+            .candidate-grid { grid-template-columns: 1fr; padding: 1.2rem; }
+            .q-meta { flex-direction: column; align-items: flex-start; }
+            .score-buttons { width: 100%; justify-content: flex-start; }
+            .block-title { font-size: 1.2rem; flex-wrap: wrap; }
+            .result-block { flex-direction: column; align-items: stretch; text-align: center; }
+            .result-status { justify-content: center; }
+            .result-actions { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0; }
+            .card { border-radius: 32px; padding: 1.2rem; }
+            .question-item { padding: 1rem 1rem 1.4rem; }
+            .q-header { flex-direction: column; align-items: flex-start; }
+            .result-score .big { font-size: 2.2rem; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #141a24; }
+        ::-webkit-scrollbar-thumb { background: #f5c842; border-radius: 12px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="card fade-up">
+
+        <div class="header-badge fade-up delay-1">
+            <i class="fas fa-crown"></i> Лидер банды · проверка
+        </div>
+        <h1 class="fade-up delay-1">ОБЗВОН</h1>
+        <div class="subhead fade-up delay-2">
+            <i class="fas fa-skull" style="color: #f5c842; margin-right: 10px;"></i> 
+            Проверка знаний правил для лидера банды
+        </div>
+
+        <div class="candidate-grid fade-up delay-2">
+            <div class="field-group">
+                <label><i class="far fa-user" style="margin-right: 6px;"></i> Имя кандидата</label>
+                <input type="text" placeholder="Введите имя..." value="Имя Кандидата" id="candidateName" />
+            </div>
+            <div class="field-group">
+                <label><i class="fas fa-tag" style="margin-right: 6px;"></i> Название банды</label>
+                <input type="text" placeholder="Например: Grove Street..." value="" id="candidateGang" />
+            </div>
+            <div class="field-group full-width">
+                <label><i class="fas fa-scroll" style="margin-right: 6px;"></i> О себе, опыт</label>
+                <textarea rows="2" placeholder="Расскажите о себе, был ли опыт лидерства..." id="candidateExp"></textarea>
+            </div>
+        </div>
+
+        <div class="block-title fade-up delay-3">
+            <i class="fas fa-gavel" style="color: #f5c842;"></i> БЛОК 1: Общие правила банды <span>17 вопросов</span>
+        </div>
+
+        <!-- Вопросы 1-17 (оставлены как в оригинале) -->
+        <div class="question-item fade-up delay-3">
+            <div class="q-header">
+                <span class="q-number">Вопрос 1</span>
+                <span class="q-title"><i class="fas fa-user-tie" style="color: #f5c842; margin-right: 8px;"></i>Заместители</span>
+            </div>
+            <div class="q-desc">Сколько заместителей может быть у лидера?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer1"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer1" class="answer-reveal"><strong>Ответ:</strong> Не более 4 заместителей.</div>
+        </div>
+
+        <div class="question-item fade-up delay-4">
+            <div class="q-header">
+                <span class="q-number">Вопрос 2</span>
+                <span class="q-title"><i class="fas fa-coins" style="color: #f5c842; margin-right: 8px;"></i>Вступление</span>
+            </div>
+            <div class="q-desc">Можно ли брать деньги за вступление?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer2"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer2" class="answer-reveal"><strong>Ответ:</strong> Да, но не более 3 000$, а деньги должны поступить на счёт фракции.</div>
+        </div>
+
+        <div class="question-item fade-up delay-5">
+            <div class="q-header">
+                <span class="q-number">Вопрос 3</span>
+                <span class="q-title"><i class="fas fa-arrow-up" style="color: #f5c842; margin-right: 8px;"></i>Повышение</span>
+            </div>
+            <div class="q-desc">Можно ли брать деньги за повышение?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer3"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer3" class="answer-reveal"><strong>Ответ:</strong> Да, но не более 5 000$.</div>
+        </div>
+
+        <div class="question-item fade-up delay-6">
+            <div class="q-header">
+                <span class="q-number">Вопрос 4</span>
+                <span class="q-title"><i class="fas fa-warehouse" style="color: #f5c842; margin-right: 8px;"></i>Склад</span>
+            </div>
+            <div class="q-desc">Что запрещено делать со складом?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer4"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer4" class="answer-reveal"><strong>Ответ:</strong> Сливать склад или брать больше разрешённого лидером/замом.</div>
+        </div>
+
+        <div class="question-item fade-up delay-3">
+            <div class="q-header">
+                <span class="q-number">Вопрос 5</span>
+                <span class="q-title"><i class="fas fa-car" style="color: #f5c842; margin-right: 8px;"></i>Полиция</span>
+            </div>
+            <div class="q-desc">Можно ли уходить от полиции на респаун банды?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer5"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer5" class="answer-reveal"><strong>Ответ:</strong> Нет, запрещено.</div>
+        </div>
+
+        <div class="question-item fade-up delay-4">
+            <div class="q-header">
+                <span class="q-number">Вопрос 6</span>
+                <span class="q-title"><i class="fas fa-tshirt" style="color: #f5c842; margin-right: 8px;"></i>Одежда</span>
+            </div>
+            <div class="q-desc">В какой одежде должен быть участник банды?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer6"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer6" class="answer-reveal"><strong>Ответ:</strong> Минимум 70% одежды должны соответствовать цветам банды, особенно при криминальной деятельности.</div>
+        </div>
+
+        <div class="question-item fade-up delay-5">
+            <div class="q-header">
+                <span class="q-number">Вопрос 7</span>
+                <span class="q-title"><i class="fas fa-crosshairs" style="color: #f5c842; margin-right: 8px;"></i>Огонь на территории</span>
+            </div>
+            <div class="q-desc">Можно ли открыть огонь по врагам на своей территории?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer7"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer7" class="answer-reveal"><strong>Ответ:</strong> Да, можно без предупреждения.</div>
+        </div>
+
+        <div class="question-item fade-up delay-6">
+            <div class="q-header">
+                <span class="q-number">Вопрос 8</span>
+                <span class="q-title"><i class="fas fa-bullseye" style="color: #f5c842; margin-right: 8px;"></i>RP-стрела</span>
+            </div>
+            <div class="q-desc">Что такое RP-стрела?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer8"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer8" class="answer-reveal"><strong>Ответ:</strong> RP-конфликт между преступными организациями с переговорами и последующей перестрелкой.</div>
+        </div>
+
+        <div class="question-item fade-up delay-3">
+            <div class="q-header">
+                <span class="q-number">Вопрос 9</span>
+                <span class="q-title"><i class="fas fa-calendar-week" style="color: #f5c842; margin-right: 8px;"></i>RP-стрелы за неделю</span>
+            </div>
+            <div class="q-desc">Сколько RP-стрел можно забить за неделю?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer9"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer9" class="answer-reveal"><strong>Ответ:</strong> Не более 2 одной фракции.</div>
+        </div>
+
+        <div class="question-item fade-up delay-4">
+            <div class="q-header">
+                <span class="q-number">Вопрос 10</span>
+                <span class="q-title"><i class="fas fa-clock" style="color: #f5c842; margin-right: 8px;"></i>Время RP-стрел</span>
+            </div>
+            <div class="q-desc">Когда можно забивать RP-стрелы?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer10"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer10" class="answer-reveal"><strong>Ответ:</strong> С 12:00 до 22:20 по МСК.</div>
+        </div>
+
+        <div class="question-item fade-up delay-5">
+            <div class="q-header">
+                <span class="q-number">Вопрос 11</span>
+                <span class="q-title"><i class="fas fa-users" style="color: #f5c842; margin-right: 8px;"></i>Капт: минимум/максимум</span>
+            </div>
+            <div class="q-desc">Сколько минимум и максимум человек может участвовать в капте?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer11"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer11" class="answer-reveal"><strong>Ответ:</strong> Максимум — 18 человек, минимум — 6 человек. Исключение: защита может прийти меньшим количеством.</div>
+        </div>
+
+        <div class="question-item fade-up delay-6">
+            <div class="q-header">
+                <span class="q-number">Вопрос 12</span>
+                <span class="q-title"><i class="fas fa-hourglass-half" style="color: #f5c842; margin-right: 8px;"></i>Капт: интервал</span>
+            </div>
+            <div class="q-desc">Через сколько после капта можно забить следующий?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer12"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer12" class="answer-reveal"><strong>Ответ:</strong> Атакующая сторона может забить следующий капт через 60 минут.</div>
+        </div>
+
+        <div class="question-item fade-up delay-3">
+            <div class="q-header">
+                <span class="q-number">Вопрос 13</span>
+                <span class="q-title"><i class="fas fa-ban" style="color: #f5c842; margin-right: 8px;"></i>Капт: запрещённое время</span>
+            </div>
+            <div class="q-desc">Когда запрещено забивать капты?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer13"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer13" class="answer-reveal"><strong>Ответ:</strong> С 18:00 до 19:30.</div>
+        </div>
+
+        <div class="question-item fade-up delay-4">
+            <div class="q-header">
+                <span class="q-number">Вопрос 14</span>
+                <span class="q-title"><i class="fas fa-fort-awesome" style="color: #f5c842; margin-right: 8px;"></i>Форт Занкудо: кто нападает</span>
+            </div>
+            <div class="q-desc">Кто может нападать на Форт Занкудо?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer14"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer14" class="answer-reveal"><strong>Ответ:</strong> Только банды и мафии.</div>
+        </div>
+
+        <div class="question-item fade-up delay-5">
+            <div class="q-header">
+                <span class="q-number">Вопрос 15</span>
+                <span class="q-title"><i class="fas fa-handshake" style="color: #f5c842; margin-right: 8px;"></i>Форт Занкудо: союз</span>
+            </div>
+            <div class="q-desc">Разрешено ли иметь союз при нападении на Форт Занкудо?</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer15"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer15" class="answer-reveal"><strong>Ответ:</strong> Да, только один IC союз.</div>
+        </div>
+
+        <div class="question-item fade-up delay-6">
+            <div class="q-header">
+                <span class="q-number">Вопрос 16</span>
+                <span class="q-title"><i class="fas fa-user-friends" style="color: #f5c842; margin-right: 8px;"></i>Форт Занкудо: минимум</span>
+            </div>
+            <div class="q-desc">Минимальное количество участников при нападении на Форт Занкудо</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer16"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer16" class="answer-reveal"><strong>Ответ:</strong> 10 человек.</div>
+        </div>
+
+        <div class="question-item fade-up delay-3">
+            <div class="q-header">
+                <span class="q-number">Вопрос 17</span>
+                <span class="q-title"><i class="fas fa-clock" style="color: #f5c842; margin-right: 8px;"></i>Форт Занкудо: интервал</span>
+            </div>
+            <div class="q-desc">Интервал между нападениями на Форт Занкудо</div>
+            <div class="q-meta">
+                <span class="max-score"><i class="fas fa-star" style="color: #f5c842;"></i> Макс. балл: 3</span>
+                <div class="score-buttons">
+                    <button class="score-btn" data-value="3">3</button>
+                    <button class="score-btn" data-value="2">2</button>
+                    <button class="score-btn" data-value="1">1</button>
+                    <button class="score-btn" data-value="0">0</button>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="show-answer-btn" data-target="answer17"><i class="fas fa-eye"></i> Показать ответ</button>
+                    <span class="not-evaluated"><i class="far fa-clock"></i> Не оценено</span>
+                </div>
+            </div>
+            <div id="answer17" class="answer-reveal"><strong>Ответ:</strong> 60 минут.</div>
+        </div>
+
+        <div class="result-block fade-up delay-5" id="resultBlock">
+            <div class="result-score">
+                <span class="big" id="totalScore">0</span>
+                <span class="total">/ 51</span>
+                <span style="font-size: 0.8rem; color: #6a7fa0; margin-left: 6px;">(макс. 51)</span>
+            </div>
+            <div class="result-status">
+                <span class="status-badge pending" id="statusBadge"><i class="fas fa-hourglass-half"></i> Ожидание оценок</span>
+                <span style="font-size: 0.85rem; color: #6a7fa0;" id="recommendText">—</span>
+            </div>
+            <div class="result-actions">
+                <button class="btn-calc" id="calcBtn"><i class="fas fa-calculator"></i> Рассчитать</button>
+                <button class="btn-save" id="saveBtn"><i class="fas fa-save"></i> Сохранить</button>
+                <button class="btn-reset" id="resetBtn"><i class="fas fa-undo-alt"></i> Сбросить</button>
+            </div>
+        </div>
+
+        <div class="action-bar fade-up delay-6">
+            <button class="btn-gold" id="submitTest"><i class="fas fa-pen-fancy"></i> Завершить проверку</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- Toast уведомление -->
+<div class="toast" id="toast"></div>
+
+<script>
+    (function() {
+        const MAX_SCORE = 51;
+        const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // Замените на ваш URL
+
+        const totalScoreEl = document.getElementById('totalScore');
+        const statusBadge = document.getElementById('statusBadge');
+        const recommendText = document.getElementById('recommendText');
+        const calcBtn = document.getElementById('calcBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const submitBtn = document.getElementById('submitTest');
+        const saveBtn = document.getElementById('saveBtn');
+        const toast = document.getElementById('toast');
+
+        function showToast(message, type = 'success') {
+            toast.textContent = message;
+            toast.className = 'toast show ' + type;
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        function getCandidateData() {
+            const name = document.getElementById('candidateName').value.trim() || 'Не указано';
+            const gang = document.getElementById('candidateGang').value.trim() || 'Не указано';
+            const exp = document.getElementById('candidateExp').value.trim() || 'Не указано';
+            return { name, gang, exp };
+        }
+
+        function getScores() {
+            const scores = [];
+            document.querySelectorAll('.question-item').forEach((item, index) => {
+                const activeBtn = item.querySelector('.score-btn.active');
+                const value = activeBtn ? parseInt(activeBtn.getAttribute('data-value'), 10) : null;
+                scores.push({
+                    question: index + 1,
+                    score: value,
+                    evaluated: value !== null
+                });
+            });
+            return scores;
+        }
+
+        function calculateTotal() {
+            let sum = 0;
+            let evaluated = 0;
+            const allGroups = document.querySelectorAll('.q-meta');
+
+            allGroups.forEach(group => {
+                const active = group.querySelector('.score-btn.active');
+                if (active) {
+                    sum += parseInt(active.getAttribute('data-value'), 10);
+                    evaluated++;
+                }
+            });
+
+            totalScoreEl.textContent = sum;
+
+            const percent = (sum / MAX_SCORE) * 100;
+            let badgeHTML = '';
+            let recommend = '';
+
+            if (evaluated === 0) {
+                badgeHTML = `<i class="fas fa-hourglass-half"></i> Ожидание оценок`;
+                statusBadge.className = 'status-badge pending';
+                recommend = '—';
+            } else if (evaluated < 17) {
+                badgeHTML = `<i class="fas fa-clock"></i> Оценено ${evaluated}/17`;
+                statusBadge.className = 'status-badge pending';
+                recommend = 'Продолжите оценку';
+            } else {
+                if (percent >= 70) {
+                    badgeHTML = `<i class="fas fa-check-circle"></i> Рекомендован`;
+                    statusBadge.className = 'status-badge recommend';
+                    recommend = '✅ Кандидат рекомендован';
+                } else {
+                    badgeHTML = `<i class="fas fa-times-circle"></i> Не рекомендован`;
+                    statusBadge.className = 'status-badge not-recommend';
+                    recommend = '❌ Кандидат не рекомендован';
+                }
+            }
+
+            statusBadge.innerHTML = badgeHTML;
+            recommendText.textContent = recommend;
+
+            return { sum, evaluated, percent };
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.score-btn.active').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.not-evaluated').forEach(el => {
+                el.innerHTML = '<i class="far fa-clock"></i> Не оценено';
+                el.style.color = '#8fa1c7';
+            });
+            document.querySelectorAll('.answer-reveal.open').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.show-answer-btn').forEach(btn => {
+                btn.innerHTML = '<i class="fas fa-eye"></i> Показать ответ';
+            });
+            calculateTotal();
+        }
+
+        async function saveToSheets() {
+            const candidate = getCandidateData();
+            const scores = getScores();
+            const result = calculateTotal();
+            const status = result.evaluated === 17 
+                ? (result.percent >= 70 ? 'Рекомендован' : 'Не рекомендован')
+                : 'Не завершена';
+
+            // Проверяем, все ли вопросы оценены
+            const allEvaluated = scores.every(s => s.evaluated);
+            if (!allEvaluated) {
+                const evaluatedCount = scores.filter(s => s.evaluated).length;
+                showToast(`Оценено ${evaluatedCount} из 17 вопросов. Завершите оценку всех вопросов.`, 'error');
+                return;
+            }
+
+            const data = {
+                timestamp: new Date().toLocaleString('ru-RU'),
+                candidateName: candidate.name,
+                candidateGang: candidate.gang,
+                candidateExp: candidate.exp,
+                scores: scores.map(s => s.score),
+                totalScore: result.sum,
+                maxScore: MAX_SCORE,
+                percent: Math.round(result.percent),
+                status: status,
+                recommendation: result.percent >= 70 ? '✅ Рекомендован' : '❌ Не рекомендован'
+            };
+
+            saveBtn.classList.add('loading');
+            saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Сохранение...';
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // При mode: 'no-cors' response недоступен, но запрос отправлен
+                showToast('✅ Данные успешно сохранены в Google Таблицу!', 'success');
+            } catch (error) {
+                console.error('Ошибка сохранения:', error);
+                showToast('❌ Ошибка сохранения. Проверьте консоль.', 'error');
+            } finally {
+                saveBtn.classList.remove('loading');
+                saveBtn.innerHTML = '<i class="fas fa-save"></i> Сохранить';
+            }
+        }
+
+        // ---------- Event Listeners ----------
+        document.querySelectorAll('.score-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parent = this.closest('.q-meta');
+                const siblings = parent.querySelectorAll('.score-btn');
+                siblings.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const notEval = parent.querySelector('.not-evaluated');
+                if (notEval) {
+                    notEval.innerHTML = '<i class="fas fa-check-circle" style="color: #f5c842;"></i> Оценено';
+                    notEval.style.color = '#f5c842';
+                }
+                calculateTotal();
+            });
+        });
+
+        document.querySelectorAll('.show-answer-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const answerDiv = document.getElementById(targetId);
+                if (!answerDiv) return;
+                const isOpen = answerDiv.classList.contains('open');
+
+                document.querySelectorAll('.answer-reveal').forEach(el => {
+                    if (el.id !== targetId) el.classList.remove('open');
+                });
+
+                if (isOpen) {
+                    answerDiv.classList.remove('open');
+                    this.innerHTML = '<i class="fas fa-eye"></i> Показать ответ';
+                } else {
+                    answerDiv.classList.add('open');
+                    this.innerHTML = '<i class="fas fa-eye-slash"></i> Скрыть ответ';
+                }
+            });
+        });
+
+        calcBtn.addEventListener('click', function() {
+            calculateTotal();
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => { this.style.transform = ''; }, 200);
+        });
+
+        resetBtn.addEventListener('click', function() {
+            resetAll();
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => { this.style.transform = ''; }, 200);
+        });
+
+        saveBtn.addEventListener('click', saveToSheets);
+
+        submitBtn.addEventListener('click', function() {
+            const result = calculateTotal();
+            if (result.evaluated < 17) {
+                alert(`Оценено ${result.evaluated} из 17 вопросов.\nЗавершите оценку всех вопросов для финальной рекомендации.`);
+            } else {
+                const percent = (result.sum / MAX_SCORE) * 100;
+                const status = percent >= 70 ? 'РЕКОМЕНДОВАН' : 'НЕ РЕКОМЕНДОВАН';
+                alert(`✅ Проверка завершена!\n\nИтоговый балл: ${result.sum} / ${MAX_SCORE}\nПроцент: ${Math.round(percent)}%\nСтатус: ${status}`);
+            }
+            this.style.transform = 'scale(0.96)';
+            setTimeout(() => { this.style.transform = ''; }, 200);
+        });
+
+        calculateTotal();
+        console.log('Обзвон — 17 вопросов с сохранением в Google Sheets');
+    })();
+</script>
+
+</body>
+</html>
